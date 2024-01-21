@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.1.RELEASE</version>
+		<version>3.1.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.rygn</groupId>
@@ -15,7 +15,7 @@
 	<description>SOAP WS project with Spring Boot</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencies>
@@ -38,28 +38,23 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.springframework.ws/spring-ws-test -->
-		<dependency>
-		    <groupId>org.springframework.ws</groupId>
-		    <artifactId>spring-ws-test</artifactId>
-		    <version>3.0.10.RELEASE</version>
-		    <scope>test</scope>
-		</dependency>				
+		</dependency>			
 		
 		<!-- https://mvnrepository.com/artifact/wsdl4j/wsdl4j -->
 		<dependency>
 		    <groupId>wsdl4j</groupId>
 		    <artifactId>wsdl4j</artifactId>
-		    <version>1.6.3</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
 		<dependency>
 		    <groupId>org.glassfish.jaxb</groupId>
 		    <artifactId>jaxb-runtime</artifactId>
-		    <version>2.3.3</version>
 		</dependency>
 		
 	</dependencies>
@@ -73,7 +68,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>2.5.0</version>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>xjc</id>
@@ -84,7 +79,8 @@
 				</executions>
 				<configuration>
 					<sources>
-						<source>${project.basedir}/src/main/resources/countries.xsd</source>
+						<source>${project.basedir}/src/main/resources/countries.xsd</source> 
+						<source>${project.basedir}/src/main/resources/teams.xsd</source>
 					</sources>
 				</configuration>
 			</plugin>

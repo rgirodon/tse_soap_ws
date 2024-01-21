@@ -1,6 +1,6 @@
 package org.rygn.firstsoapws;
 
-import javax.servlet.Servlet;
+import jakarta.servlet.Servlet;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -17,13 +17,13 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 public class WebServiceConfig {
 
-	@Bean
+	@Bean(name = "countriesSchema")
 	public XsdSchema countriesSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
 	}
 	
 	@Bean(name = "countries")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+	public DefaultWsdl11Definition countriesWsdl11Definition(XsdSchema countriesSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("CountriesPort");
 		wsdl11Definition.setLocationUri("/ws");
@@ -31,7 +31,7 @@ public class WebServiceConfig {
 		wsdl11Definition.setSchema(countriesSchema);
 		return wsdl11Definition;
 	}
-	
+			
 	@Bean
 	public ServletRegistrationBean<Servlet> messageDispatcherServlet(ApplicationContext applicationContext) {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
