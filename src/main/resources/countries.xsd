@@ -1,6 +1,6 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
-           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
-
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service/countries"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service/countries" elementFormDefault="qualified">
+           
     <xs:element name="getCountryRequest">
         <xs:complexType>
             <xs:sequence>
@@ -23,6 +23,8 @@
             <xs:element name="population" type="xs:int"/>
             <xs:element name="capital" type="xs:string"/>
             <xs:element name="currency" type="tns:currency"/>
+            <xs:element name="language" type="xs:string"/>
+            <xs:element name="flagColors" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -31,6 +33,8 @@
             <xs:enumeration value="GBP"/>
             <xs:enumeration value="EUR"/>
             <xs:enumeration value="PLN"/>
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="YEN"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
