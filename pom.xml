@@ -80,7 +80,6 @@
 				<configuration>
 					<sources>
 						<source>${project.basedir}/src/main/resources/countries.xsd</source> 
-						<source>${project.basedir}/src/main/resources/teams.xsd</source>
 					</sources>
 				</configuration>
 			</plugin>
